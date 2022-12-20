@@ -59,7 +59,6 @@ const Home = ({netflixOriginals,
           <Row title="Comedies" movies={comedyMovies} />
           <Row title="Scary Movies" movies={horrorMovies} />
           <Row title="Romance Movies" movies={romanceMovies} />
-          <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
       {/* modal */}
@@ -83,7 +82,6 @@ export const getServerSideProps=async ()=>{
     comedyMovies,
     horrorMovies,
     romanceMovies,
-    documentaries,
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
@@ -92,7 +90,6 @@ export const getServerSideProps=async ()=>{
     fetch(requests.fetchComedyMovies).then((res) => res.json()),
     fetch(requests.fetchHorrorMovies).then((res) => res.json()),
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
-    fetch(requests.fetchDocumentaries).then((res) => res.json()),
   ])
 
   return {
@@ -104,7 +101,6 @@ export const getServerSideProps=async ()=>{
       comedyMovies: comedyMovies.results,
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
-      documentaries: documentaries.results,
       // products,
     },
   }

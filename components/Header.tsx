@@ -115,10 +115,10 @@ const Header = () => {
           </div>
           <div>
             <div
-              className={`flex-1 justify-self-center   pb-1 phoneli md:block md:pb-0 md:mt-0 ${navbar ? 'block' : 'hidden'
+              className={`flex-1 justify-self-center lg:mr-[19rem] md:mr-[3rem] phoneli md:block  ${navbar ? 'block' : 'hidden'
                 }`}
             >
-              <ul className="  items-center md:ml-6 md:justify-between md:flex md:space-x-1 md:space-y-0 ">
+              <ul className="  items-center md:ml-2   md:justify-between md:flex md:space-x-1 md:space-y-0 ">
                 <li className="text-white p-3 text-lg">
                   {/* <Link href="/tvshows"> */}
                     Tv shows

@@ -1,4 +1,6 @@
 import React from 'react'
+import { useRecoilState } from 'recoil'
+import { modalState, movieState } from '../atoms/modalAtom'
 import { Movie } from '../typings'
 interface Props{
     movie:Movie
@@ -6,12 +8,14 @@ interface Props{
 }
 
 const Thumbnail = ({movie}: Props) => {
+  const [CurrentMovie, setCurrentMovie] =useRecoilState(movieState)
+  const [showModal, setShowModal]=useRecoilState(modalState)
   return (
     <div
     className={` h-[8rem] min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-48 md:min-w-[260px] md:hover:scale-105`}
     onClick={() => {
-    //   setCurrentMovie(movie)
-    //   setShowModal(true)
+      setCurrentMovie(movie)
+      setShowModal(true)
     }}
   >
     <img

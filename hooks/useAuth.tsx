@@ -66,7 +66,7 @@ export const AuthProvider = ({children}:AuthProviderProps) => {
             setUser(usercredential.user)
             router.push('/')
             setLoading(false)
-        }).catch((error)=>alert(error.message)).finally(()=>setLoading(false))
+        }).catch((error)=>alert("User with same credentials already logged in,Sign In")).finally(()=>setLoading(false))
 
 
     }
@@ -76,7 +76,7 @@ export const AuthProvider = ({children}:AuthProviderProps) => {
             setUser(usercredential.user)
             router.push('/')
             setLoading(false)
-        }).catch((error)=>alert(error.message)).finally(()=>setLoading(false))
+        }).catch((error)=>alert("User not found,pls sign up now")).finally(()=>setLoading(false))
 
 
     }
