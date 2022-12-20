@@ -49,7 +49,7 @@ const Modal = () => {
 
   return (
     <MuiModal open={showModal} onClose={handleClose}
-      className="fixed !top-12 left-0 right-0 z-50 mx-auto w-[75%] m-auto sm:max-w-2xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide">
+      className="fixed !top-12 left-0 right-0 z-50 mx-auto w-[95%] m-auto sm:max-w-2xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide">
       <>
         <button
           className="modalButton absolute right-5 top-5 !z-40 h-9 w-9 border-none bg-[#181818] hover:bg-[#181818]"
@@ -67,14 +67,11 @@ const Modal = () => {
             playing
             muted={muted}
           />
-          <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
+          <div className="absolute bottom-4 sm:bottom-10 flex w-full items-center justify-between px-10">
             <div className='flex space-x-2'>
-              <button className="flex items-center gap-x-1 rounded bg-white px-5 py-1 text-xl font-bold text-black transition hover:bg-[#e6e6e6]">
-                <FaPlay className="h-7 w-7 text-black py-1" />
-                Play
-              </button>
+             
               <button className='modalButton'>
-                <PlusIcon className='h-7 w-7' />
+                <PlusIcon className='  sm:h-7 sm:w-7' />
 
               </button>
               <button className='modalButton'>
@@ -93,7 +90,7 @@ const Modal = () => {
         </div>
 
 
-        <div className="flex space-x-16 rounded-b-md bg-[#181818] px-10 py-8">
+        <div className="flex space-x-16 rounded-b-md bg-[#181818] sm:px-10 sm:py-8 px-2 py-4">
           <div className="space-y-6 text-lg">
             <div className="flex items-center space-x-2 text-sm">
               <p className="font-semibold text-green-400">
@@ -108,7 +105,7 @@ const Modal = () => {
 
             </div>
             <div className="flex flex-col gap-x-10 gap-y-4 font-light md:flex-row">
-            <p className="w-5/6">{movie?.overview}</p>
+            <p className="sm:w-5/6 w-full sm:text-[17px] text-[15px]">{movie?.overview}</p>
             <div className="flex flex-col space-y-3 text-sm">
                 <div>
                   <span className="text-[gray]">Genres:</span>{' '}
