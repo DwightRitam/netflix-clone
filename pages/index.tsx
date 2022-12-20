@@ -1,8 +1,10 @@
 
 import Head from 'next/head'
-import Image from 'next/image'
+import { useRecoilValue } from 'recoil'
+import { modalState } from '../atoms/modalAtom'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
+import Modal from '../components/Modal'
 import Row from '../components/Row'
 import requests from '../request/request'
 import { Movie } from '../typings'
@@ -29,6 +31,10 @@ const Home = ({netflixOriginals,
   topRated,
   trendingNow,
   }:Props) => {
+
+    const showModal=useRecoilValue(modalState)
+    
+    
   
   
   
@@ -57,6 +63,9 @@ const Home = ({netflixOriginals,
         </section>
       </main>
       {/* modal */}
+      {showModal && <Modal/>}
+
+      
     </div>
   )
 }

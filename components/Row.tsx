@@ -13,7 +13,7 @@ const Row = ({title,movies}:Props) => {
     const [isMoved, setIsMoved] = useState(false)
   
     const handleClick = (direction: string) => {
-        console.log("cursor");
+       
         
       setIsMoved(true)
       if (rowRef.current) {

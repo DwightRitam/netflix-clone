@@ -21,7 +21,7 @@ const Thumbnail = ({movie}: Props) => {
       className="rounded-sm object-cover md:rounded"
       
     />
- <h2 className='pr-1'>{movie.title}</h2>
+ <h2 className='pr-1 sm:text-[15px] text-[10px]'>{movie.title}</h2>
 
   </div>
   )
