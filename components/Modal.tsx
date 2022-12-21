@@ -8,7 +8,9 @@ import { Element, Genre, Movie } from '../typings'
 import ReactPlayer from 'react-player/lazy'
 import { FaPlay } from 'react-icons/fa'
 
-const Modal = () => {
+const Modal = ({genre}:any) => {
+  // console.log(genre);
+  
   const [showModal, setShowModal] = useRecoilState(modalState)
   const handleClose = () => {
     setShowModal(false)
@@ -24,7 +26,7 @@ const Modal = () => {
     if (!movie) return
 
     async function fetchMovie() {
-      const data = await fetch(`https://api.themoviedb.org/3/${movie?.media_type === 'tv' ? 'tv' : 'movie'
+      const data = await fetch(`https://api.themoviedb.org/3/${genre === 'tv' ? 'tv' : 'movie'
         }/${movie?.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY
         }&language=en-US&append_to_response=videos`
       ).then((response) => response.json())
@@ -46,6 +48,7 @@ const Modal = () => {
 
   }, [movie])
 
+  // console.log(trailer);
 
   return (
     <MuiModal open={showModal} onClose={handleClose}
