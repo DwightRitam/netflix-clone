@@ -112,7 +112,7 @@ const Header = () => {
 
                     <div className=" dropdown inline-block relative">
                       <button onClick={toggle} className="  font-semibold py-2 mt-[-9px] md:m-0 ml-[-24px] md:ml-[-25px] px-4 rounded inline-flex items-center">
-                        <span className="mr-1 text-[15px]">Search by </span>
+                        <span className="mr-1 text-[15px] font-serif">Search by </span>
                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /> </svg>
                       </button>
                       <ul className={`dropdown-menu absolute  ${toggledclass} text-gray-700 `}>
@@ -126,7 +126,7 @@ const Header = () => {
                               name="search-field"
                               autoComplete="off"
                               id="search-field"
-                              className=" bg-transparent ml-[1px] border-white placeholder-white outline-none text-[13px] text-white "
+                              className=" bg-transparent ml-[1px] font-serif border-white placeholder-white outline-none text-[13px] text-white "
                               placeholder="Search By Show title..."
                               type="search"
                               value={showitem}
@@ -144,7 +144,7 @@ const Header = () => {
                               name="search-field"
                               autoComplete="off"
                               id="search-field"
-                              className=" bg-transparent ml-[1px] border-white placeholder-white outline-none text-[13px] text-white "
+                              className=" bg-transparent font-serif ml-[1px] border-white placeholder-white outline-none text-[13px] text-white "
                               placeholder="Search By Film title..."
                               type="search"
                               value={searchitem}
@@ -203,10 +203,10 @@ const Header = () => {
                 </li>
                 <li className="text-white p-3 text-sm lg:text-lg">
 
-                  {/* <Link href="/mylist"> */}
+                  <Link href="/mylist">
                   My list
 
-                  {/* </Link> */}
+                  </Link>
                 </li>
 
 
@@ -223,7 +223,7 @@ const Header = () => {
 
                 <div className=" dropdown inline-block relative">
                   <button onClick={toggle} className="  font-semibold py-2 mt-[-9px] md:m-0 ml-[-24px] md:ml-[-25px] px-4 rounded inline-flex items-center">
-                    <span className="mr-1 text-[30px]">Search by </span>
+                    <span className="mr-1 text-[30px] font-serif">Search by </span>
                     <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /> </svg>
                   </button>
                   <ul className={`dropdown-menu absolute  ${toggledclass} text-gray-700 `}>
@@ -237,7 +237,7 @@ focus-within:text-gray-600">
                           name="search-field"
                           autoComplete="off"
                           id="search-field"
-                          className=" bg-transparent -ml-1 border-white placeholder-white outline-none text-[13px] text-white "
+                          className=" bg-transparent font-serif -ml-1 border-white placeholder-white outline-none text-[13px] text-white "
                           placeholder="Search By Show title..."
                           type="search"
                           value={showitem}
@@ -255,7 +255,7 @@ focus-within:text-gray-600">
                           name="search-field"
                           autoComplete="off"
                           id="search-field"
-                          className=" bg-transparent  -ml-1 border-white placeholder-white outline-none text-[13px] text-white "
+                          className=" bg-transparent font-serif -ml-1 border-white placeholder-white outline-none text-[13px] text-white "
                           placeholder="Search By Film title..."
                           type="search"
                           value={searchitem}

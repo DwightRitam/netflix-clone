@@ -1,11 +1,13 @@
 
 import Head from 'next/head'
 import { useRecoilValue } from 'recoil'
-import { modalState } from '../atoms/modalAtom'
+import { modalState, movieState } from '../atoms/modalAtom'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
 import Modal from '../components/Modal'
 import Row from '../components/Row'
+import useAuth from '../hooks/useAuth'
+import useList from '../hooks/useList'
 import requests from '../request/request'
 import { Movie } from '../typings'
 
@@ -22,7 +24,7 @@ interface Props {
   // products: Product[]
 }
 
-const Home = ({netflixOriginals,
+const Home = ({ netflixOriginals,
   actionMovies,
   comedyMovies,
   documentaries,
@@ -30,14 +32,14 @@ const Home = ({netflixOriginals,
   romanceMovies,
   topRated,
   trendingNow,
-  }:Props) => {
+}: Props) => {
 
-    const showModal=useRecoilValue(modalState)
-    
-    
-  
-  
-  
+  const showModal = useRecoilValue(modalState)
+
+ 
+
+
+
   return (
     <div className='relative h-screen bg-gradient-to-b
     lg:h-[140vh]'>
@@ -46,34 +48,34 @@ const Home = ({netflixOriginals,
         <link rel="icon" href="https://cdn.iconscout.com/icon/free/png-256/netflix-3628944-3030169.png" />
       </Head>
 
-  
-     <Header/>
+
+      <Header />
       <main className="relative pl-4 pb-32 lg:space-y-24 lg:pl-16 ">
         <Banner netflixOriginals={netflixOriginals} />
         <section className="md:space-y-24">
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />
-          {/* My List */}
-
+          
           <Row title="Comedies" movies={comedyMovies} />
           <Row title="Scary Movies" movies={horrorMovies} />
           <Row title="Romance Movies" movies={romanceMovies} />
         </section>
       </main>
       {/* modal */}
-      {showModal && <Modal/>}
+      {showModal && <Modal  />}
 
-      
+
     </div>
+
   )
 }
 
 export default Home
 
-export const getServerSideProps=async ()=>{
- 
-  
+export const getServerSideProps = async () => {
+
+
   const [
     netflixOriginals,
     trendingNow,

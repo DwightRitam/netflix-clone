@@ -1,9 +1,11 @@
+import { DocumentData } from 'firebase/firestore'
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import { modalState, movieState } from '../atoms/modalAtom'
 import { Movie } from '../typings'
 interface Props{
-    movie:Movie
+    movie:Movie | DocumentData
+
 
 }
 
@@ -25,7 +27,7 @@ const Thumbnail = ({movie}: Props) => {
       className="rounded-sm object-cover md:rounded"
       
     />
- <h2 className='pr-1 sm:text-[15px] text-[10px]'>{movie.title}</h2>
+ <h2 className='pr-1 sm:text-[15px] text-[10px]'>{movie.title||movie.name}</h2>
 
   </div>
   )

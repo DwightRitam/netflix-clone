@@ -8,7 +8,7 @@ import { Movie } from '../typings'
 //   movie:Movie
 
 // }
-const Herodesign = ({movie}:any) => {
+const Herodesign = ({movie,title}:any) => {
   // console.log(movie);
   
 	
@@ -45,8 +45,7 @@ const Herodesign = ({movie}:any) => {
            
             <div className="flex flex-col flex-1 p-3">
              <p className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">
-             { movie.original_title
-}
+             { title}
               </p>   
               <h3 className="flex-1 hidden sm:flex py-2 text-lg font-semibold leading-snug">{myTruncatedString}...</h3>
               <h3 className="flex-1 flex sm:hidden py-2 text-lg font-semibold leading-snug">{smallmyTruncatedString}...</h3>

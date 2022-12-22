@@ -46,15 +46,27 @@ const searchitem = () => {
       <div className="space-y-2 text-center">
         <h2 className="sm:text-3xl text-2xl font-bold mt-[9rem]">Search results for {searchitem} </h2>
       </div>
+      {movie.length < 1 && (
+					<div >
+						<Link href='/'>  <h3 className='m-auto text-xl text-red-400 hover:underline mt-7 text-center font-bold font-sans'>No such Films have been found</h3></Link>
+
+						<img src="https://media.tenor.com/OYt3g541tDYAAAAi/cute-lovely.gif" className='h-[15rem] m-auto' alt="" />
+
+
+						<Link href='/'>  <h3 className='m-auto text-3xl hover:underline mt-7 text-center font-bold font-sans'>Continue watching !</h3></Link>
+
+					
+					</div>
+				)}
    
       <div className="grid grid-cols-2 gap-x-2 gap-y-8 md:grid-cols-2 lg:grid-cols-4"
        >
 
         {movie.map((element) => {
-          return <Herodesign movie={element} key={element.id} />
+          return <Herodesign movie={element} title={element.title} key={element.id} />
         })}
       </div>
-      {modal && <Modal genre="movie"/>}
+      {modal && <Modal/>}
     </div>
 
 

@@ -5,10 +5,11 @@ import {
     signOut,
     User,
   } from 'firebase/auth'
+import { doc, setDoc } from 'firebase/firestore'
   
   import { useRouter } from 'next/router'
   import {  createContext, useContext, useEffect, useMemo, useState } from 'react'
-  import { auth } from '../firebaseconfig'
+  import { auth, db } from '../firebaseconfig'
 
   interface IAuth {
     user: User | null
@@ -16,7 +17,7 @@ import {
     signIn: (email: string, password: string) => Promise<void>
     logout: () => Promise<void>
     error: string | null
-    loading: boolean
+    loading: boolean,
   }
 
   const AuthContext=createContext<IAuth>({
@@ -26,6 +27,7 @@ import {
     logout: async () => {},
     error: null,
     loading: false,
+    
   })
 
   interface AuthProviderProps{
@@ -40,7 +42,7 @@ export const AuthProvider = ({children}:AuthProviderProps) => {
     const router=useRouter()
     const [initialLoading, setInitialLoading] = useState(true)
 
-    
+
   useEffect(
     () =>
       onAuthStateChanged(auth, (user) => {
@@ -59,11 +61,16 @@ export const AuthProvider = ({children}:AuthProviderProps) => {
       }),
     [auth]
   )
+ 
+  
 
     const signUp= async(email:string,password:string)=>{
         setLoading(true)
         await createUserWithEmailAndPassword(auth,email,password).then(usercredential =>{
             setUser(usercredential.user)
+            setDoc(doc(db , 'users',email),{
+              saedshows:[]
+            })
             router.push('/')
             setLoading(false)
         }).catch((error)=>alert("User with same credentials already logged in,Sign In")).finally(()=>setLoading(false))
