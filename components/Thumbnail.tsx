@@ -24,7 +24,7 @@ const Thumbnail = ({movie}: Props) => {
       src={`https://image.tmdb.org/t/p/w500${
         movie.backdrop_path || movie.poster_path
       }`}
-      className="rounded-sm object-cover md:rounded"
+      className="rounded-sm object-cover md:rounded h-[80%] "
       
     />
  <h2 className='pr-1 sm:text-[15px] text-[10px]'>{movie.title||movie.name}</h2>

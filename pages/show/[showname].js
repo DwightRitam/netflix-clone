@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { modalState, movieState } from '../../atoms/modalAtom'
 import Header from '../../components/Header'
-
+import Row from '../../components/Row' 
 import { useRouter } from 'next/router'
 import Herodesign from '../../components/Herodesign'
 import Modal from '../../components/Modal'
@@ -56,12 +56,9 @@ const showname = () => {
 					</div>
 				)}
    
-      <div className="grid grid-cols-2 gap-x-2 gap-y-8 md:grid-cols-2 lg:grid-cols-4"
-       >
+      <div >
 
-        {movie.map((element) => {
-          return <Herodesign movie={element} title={element.name} key={element.id} />
-        })}
+      <Row title='Tv Shows' movies={movie}/>
       </div>
       {modal && <Modal genre="tv"/>}
     </div>
