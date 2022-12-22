@@ -68,9 +68,9 @@ export const AuthProvider = ({children}:AuthProviderProps) => {
         setLoading(true)
         await createUserWithEmailAndPassword(auth,email,password).then(usercredential =>{
             setUser(usercredential.user)
-            setDoc(doc(db , 'users',email),{
-              saedshows:[]
-            })
+            // setDoc(doc(db , 'users',user?.uid),{
+            //   saedshows:[]
+            // })
             router.push('/')
             setLoading(false)
         }).catch((error)=>alert("User with same credentials already logged in,Sign In")).finally(()=>setLoading(false))

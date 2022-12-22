@@ -76,7 +76,7 @@ const Modal = ({ genre }: any) => {
   useEffect(() => {
     if (user) {
       return onSnapshot(
-        collection(db, 'users', user!.email, 'saedshows'),
+        collection(db, 'users', user!.uid, 'saedshows'),
         (snapshot) => setMovies(snapshot.docs)
       )
     }
@@ -96,7 +96,7 @@ const Modal = ({ genre }: any) => {
   const handleList = async () => {
     if (addedToList) {
       await deleteDoc(
-        doc(db, 'users', user!.email, 'saedshows', movie?.id.toString()!)
+        doc(db, 'users', user!.uid, 'saedshows', movie?.id.toString()!)
       )
       toast(`${movie?.title || movie?.name} has been deleted from my list`, {
         position: "bottom-left",
@@ -110,7 +110,7 @@ const Modal = ({ genre }: any) => {
       });
     } else {
       await setDoc(
-        doc(db, 'users', user!.email, 'saedshows', movie?.id.toString()!),
+        doc(db, 'users', user!.uid, 'saedshows', movie?.id.toString()!),
         {
           ...movie,
         }

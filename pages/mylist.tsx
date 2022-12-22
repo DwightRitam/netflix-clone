@@ -12,7 +12,8 @@ import useList from '../hooks/useList'
 const mylist = () => {
   const { user, loading } = useAuth()
   const movie = useRecoilValue(movieState)
-  const list = useList(user?.email)
+  const list = useList(user?.uid)
+  
   const modal=useRecoilValue(modalState)
   return (
     <div className="  p-3 herodesbg  space-y-8  ">

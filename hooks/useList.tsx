@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react'
 import { db } from '../firebaseconfig'
 import { Movie } from '../typings'
 
-function useList(email: string | undefined) {
+function useList(uid: string | undefined) {
   const [list, setList] = useState<DocumentData[] | Movie[]>([])
 
   useEffect(() => {
-    if (!email) return
+    if (!uid) return
 
     return onSnapshot(
-      collection(db, 'users', email, 'saedshows'),
+      collection(db, 'users', uid, 'saedshows'),
       (snapshot) => {
         setList(
           snapshot.docs.map((doc) => ({
@@ -20,7 +20,7 @@ function useList(email: string | undefined) {
         )
       }
     )
-  }, [db,email ])
+  }, [db,uid ])
 
   return list
 }
